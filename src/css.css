@@ -1,7 +1,65 @@
+body {
+  font-family: sans-serif;
+  background-image: url(white\ flower.avif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 h1 {
   text-align: center;
+  font-size: 36px;
+}
+
+h2 {
+  margin: 0 0 5px;
+  font-size: 30px;
+}
+
+select {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.container {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #000;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+}
+
+.city {
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.city:last-child {
+  border: none;
+}
+
+.date {
+  opacity: 0.8;
+  display: flex;
+  font-size: 15px;
+}
+
+.time {
+  font-size: 48px;
+  font-weight: bold;
 }
 
 footer {
   text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+
 }
