@@ -41,15 +41,19 @@ function updateTime() {
   }
 }
 
+//Select Cities
+let intervalId; // Declare a variable to hold the interval ID
+
 function updateCity(event) {
   let cityTimezone = event.target.value;
-  if (cityTimezone === "currentLocation") {
-    cityTimezone = moment.tz.guess();
-  }
-  let citiesElement = document.querySelector("#cities");
-  let cityTime = moment().tz(cityTimezone);
-  let cityName = cityTimezone.replace("_", " ").split("/")[1];
-  citiesElement.innerHTML = `
+  function updateCityTime() {
+    if (cityTimezone === "currentLocation") {
+      cityTimezone = moment.tz.guess();
+    }
+    let citiesElement = document.querySelector("#cities");
+    let cityTime = moment().tz(cityTimezone);
+    let cityName = cityTimezone.replace("_", " ").split("/")[1];
+    citiesElement.innerHTML = `
   <div class="city">
     <div>
       <h2>${cityName}</h2>
@@ -58,6 +62,13 @@ function updateCity(event) {
     <div class="time">${cityTime.format("HH:mm:ss")}</div>
   </div>
   <a href="/">Homepage</a>`;
+  }
+  // Clear previous interval
+  clearInterval(intervalId);
+  // Call the function once immediately
+  updateCityTime();
+  // Set a new interval and store the ID
+  intervalId = setInterval(updateCityTime, 1000);
 }
 
 updateTime();
